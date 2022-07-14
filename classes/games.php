@@ -9,6 +9,11 @@ class Games extends product
  protected $color;
  protected bool $batteries;
 
+function __construct($_price, $_name, $color, $batteries){
+    parent::__construct($_name , $_price);
+    $this->color = $color;
+    $this->batteries = $batteries;
+}
 
 
  /**

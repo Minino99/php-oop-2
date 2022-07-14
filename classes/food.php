@@ -8,6 +8,12 @@ protected $category = 'food';
 protected $expireDate;
 protected $forWho;
 
+ 
+function __construct($_name, $_price, $expireDate, $forWho){
+ parent::__construct($_name , $_price);
+ $this->expireDate = $expireDate;
+ $this->forWho = $forWho;
+}
 
 /**
  * Get the value of category
