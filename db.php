@@ -15,5 +15,3 @@ $health2 = new Health("antizecche","30$", true, "cat");
 
 $productsDb = [$food1, $food2, $game1, $game2, $health1, $health2];
 
-var_dump($productsDb);
-
