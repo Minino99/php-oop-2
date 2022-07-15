@@ -4,25 +4,23 @@ require_once __DIR__ . '/user.php';
 require_once __DIR__ . '/product.php';
 class Cart
 {
- protected Product $products;
+ protected $products = [];
  protected $total = 0;
  protected User $user;
 
- function __construct(User $user, $products)
+ function __construct(User $_user, $_products)
  {
-  $this->user = $user;
-  $this->products = $products;
-  $this->total = $this->getDiscount();
+  $this->user = $_user;
+  $this->products = array_push($this->products, ...$_products);
  }
 
- public function getDiscount()
+ public function getTotal()
  {
-  if ($this->user->isIsRegistered()) {
-   $this->total = $this->products->getPrice() * 0.8;
-   return $this->total;
-  } else {
-   $this->total = $this->products->getPrice();
-   return $this->total;
+  foreach ($this->products as $product) {
+   $this->total += $product->getPrice();
   }
+  return $this->total;
  }
+
 }
+
